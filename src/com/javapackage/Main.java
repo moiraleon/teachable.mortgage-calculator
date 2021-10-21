@@ -32,18 +32,19 @@ public class Main {
 
         //get all values
 
-        float r = (AIRInput/100)/12;
-        //System.out.println(r);
-        double n = periodInput * 12;
-        double top = Math.pow(r*(1+r),n);
-        System.out.println(top);
-        double bottom = (Math.pow((1+r),n))-1;
-        System.out.println(bottom);
+        double r = (AIRInput/100)/12;//monthly interest rate
+        double n = periodInput * 12;//number of payments
+       // double top = Math.pow(r*(1+r),n);
+        //System.out.println(top);
+        //double bottom = (Math.pow((1+r),n))-1;
+        //System.out.println(bottom);
 
         //System.out.println(n);
 
         //formula for mortgage result
-        double mortgageResult = principleInput *(top/bottom);
+//        double mortgageResult = principleInput *(top/bottom);
+        double mortgageResult = principleInput *(r * Math.pow(1+r,n)/Math.pow(1+r,n));
+
         System.out.println(mortgageResult);
 
         //convert input to currency input
