@@ -6,22 +6,58 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+
+        //setting variables initially to provide full scope and later assignment
+        int principleInput = 0;
+        float AIRInput = 0;
+        int periodInput = 0;
+
         //get principle
         Scanner principleScanner = new Scanner(System.in);
-        System.out.print("Principle: ");
-        int principleInput = principleScanner.nextInt();
+
+        while (true) {
+            System.out.print("Principle ($1K - $1M): ");
+            principleInput = principleScanner.nextInt();
+            if(principleInput>=1000 && principleInput <= 1_000_000){
+                break;
+            }
+            System.out.println("Please enter a number between $1,000 and $1,000,000.");
+        }
+
        // System.out.println("Your Principle is "+ principleInput);
+
+
 
         //get annual interest rate
         Scanner AIRScanner = new Scanner(System.in);
-        System.out.print("Annual Interest Rate: ");
-        float AIRInput = AIRScanner.nextFloat();
+
+        while (true) {
+            System.out.print("Annual Interest Rate: ");
+            AIRInput = AIRScanner.nextFloat();
+            if (AIRInput >= 1 && AIRInput <= 30) {
+                break;
+            }
+            else{
+                System.out.println("Please enter a value between 1 and 30");
+            }
+
+        }
        // System.out.println("Your Annual Interest Rate is "+ AIRInput);
 
         //get period in years
         Scanner periodScanner = new Scanner(System.in);
-        System.out.print("Period (Years): ");
-        int periodInput = periodScanner.nextInt();
+
+        while (true) {
+            System.out.print("Period (Years): ");
+            periodInput = periodScanner.nextInt();
+            if (periodInput >= 1 && periodInput <= 30){
+                break;
+            }
+            else {
+                System.out.println("Please enter a a value between 1 and 30");
+            }
+        }
+
        // System.out.println("Your Period in Years is "+ periodInput);
 
 
