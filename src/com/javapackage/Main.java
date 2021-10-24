@@ -4,6 +4,16 @@ import java.text.NumberFormat;
 import java.util.Scanner;
 
 public class Main {
+    public static void main(String[] args) {
+        int principal = (int) readNumber("Principal: ",1000, 1_000_000);
+        float annualInterest = (float) readNumber("Annual Interest: ",1,30);
+        int years = (int) readNumber("Perios (Years): ",1,30);
+
+        double mortgage = calculateMortgage(principal,annualInterest,years);
+        String mortgagePayment = NumberFormat.getCurrencyInstance().format(mortgage);
+        System.out.println("Mortgage:" + mortgagePayment);
+
+    }
 
     public static double readNumber(String prompt, double min, double max){
         Scanner scanner = new Scanner(System.in);
@@ -20,7 +30,7 @@ public class Main {
         return calculateMortgage();
     };
 
-    public static String  calculateMortgage(
+    public static double calculateMortgage(
             int principleInput,
             float AIRInput,
             int periodInput){
@@ -29,9 +39,7 @@ public class Main {
         double n = periodInput * 12;//number of payments
         double mortgageResult = principleInput *(r * Math.pow(1+r,n)/Math.pow(1+r,n));
         System.out.println(mortgageResult);
-        String mortgagePayment = NumberFormat.getCurrencyInstance().format(mortgageResult);
-        //System.out.println("Mortgage:" + mortgagePayment);
-        return ("Mortgage:" + mortgagePayment);
+        return mortgageResult;
     }
 
 
