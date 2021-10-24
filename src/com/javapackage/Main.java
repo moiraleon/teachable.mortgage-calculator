@@ -20,11 +20,18 @@ public class Main {
         return calculateMortgage();
     };
 
-    public static double calculateMortgage(
+    public static String  calculateMortgage(
             int principleInput,
             float AIRInput,
             int periodInput){
 
+        double r = (AIRInput/100)/12;//monthly interest rate
+        double n = periodInput * 12;//number of payments
+        double mortgageResult = principleInput *(r * Math.pow(1+r,n)/Math.pow(1+r,n));
+        System.out.println(mortgageResult);
+        String mortgagePayment = NumberFormat.getCurrencyInstance().format(mortgageResult);
+        //System.out.println("Mortgage:" + mortgagePayment);
+        return ("Mortgage:" + mortgagePayment);
     }
 
 
